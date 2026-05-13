@@ -60,7 +60,7 @@ public class Coupon {
         return id;
     }
 
-    public void setUuid(UUID id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -72,16 +72,18 @@ public class Coupon {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void addDescription(String description) {
+        final DescriptionCoupon descriptionCoupon = new DescriptionCoupon(description);
+        this.description = descriptionCoupon.value();
     }
 
     public Double getDiscountValue() {
         return discountValue;
     }
 
-    public void setDiscountValue(Double discountValue) {
-        this.discountValue = discountValue;
+    public void addDiscountValue(Double discountValue) {
+        final DiscountValueCoupon discountValueCoupon = new DiscountValueCoupon(discountValue);
+        this.discountValue = discountValueCoupon.value();
     }
 
     public StatusCoupon getStatus() {
@@ -121,17 +123,12 @@ public class Coupon {
     }
 
     public void addExpirationDate(LocalDateTime expirationDate) {
-        if (expirationDate.isBefore(LocalDateTime.now())) {
-            throw new ValidationException("Não é possível criar uma data de expiração antes da data atual.");
-        }
-
-        this.expirationDate = expirationDate;
+        final ExpirationDateCoupon expirationDateCoupon = new ExpirationDateCoupon(expirationDate);
+        this.expirationDate = expirationDateCoupon.value();
     }
 
     public void addCodeCoupon(String code) {
-        if (code.length() != 6) {
-            throw new ValidationException("O tamanho padrão do código do cupom é de 6 caracteres.");
-        }
-        this.code = code.replaceAll("[^a-zA-Z0-9]", "");
+        final CodeCoupon codeCoupon = new CodeCoupon(code);
+        this.code = codeCoupon.value();
     }
 }

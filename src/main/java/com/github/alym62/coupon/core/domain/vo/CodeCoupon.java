@@ -27,5 +27,7 @@ public record CodeCoupon(String value) {
                             .formatted(LENGTH, value, cleaned)
             );
         }
+
+        value = cleaned;
     }
 }
