@@ -1,9 +1,9 @@
 package com.github.alym62.coupon.core.exceptions;
 
-public class ValidationException extends CouponException {
+public class CouponNotFoundException extends CouponException {
     private final String message;
 
-    public ValidationException(final String message) {
+    public CouponNotFoundException(final String message) {
         super(message);
         this.message = message;
     }

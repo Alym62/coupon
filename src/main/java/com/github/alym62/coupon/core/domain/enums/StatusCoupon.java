@@ -2,6 +2,7 @@ package com.github.alym62.coupon.core.domain.enums;
 
 public enum StatusCoupon {
     ACTIVE("ACTIVE"),
+    DELETED("DELETED"),
     INACTIVE("INACTIVE");
 
     private final String value;

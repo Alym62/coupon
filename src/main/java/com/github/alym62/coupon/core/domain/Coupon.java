@@ -5,7 +5,6 @@ import com.github.alym62.coupon.core.domain.vo.CodeCoupon;
 import com.github.alym62.coupon.core.domain.vo.DescriptionCoupon;
 import com.github.alym62.coupon.core.domain.vo.DiscountValueCoupon;
 import com.github.alym62.coupon.core.domain.vo.ExpirationDateCoupon;
-import com.github.alym62.coupon.core.exceptions.ValidationException;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -49,7 +48,6 @@ public class Coupon {
         final ExpirationDateCoupon expirationDateCoupon = new ExpirationDateCoupon(expirationDate);
         this.expirationDate = expirationDateCoupon.value();
 
-        this.id = UUID.randomUUID();
         this.status = StatusCoupon.ACTIVE;
         this.published = published;
         this.redeemed = redeemed;
