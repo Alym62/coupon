@@ -20,6 +20,14 @@ public class ExceptionConfig {
         return pb;
     }
 
+    @ExceptionHandler(Exception.class)
+    public ProblemDetail exception(Exception exception) {
+        final ProblemDetail pb = ProblemDetail.forStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+        pb.setTitle("Entre em contato com nosso suporte.");
+
+        return pb;
+    }
+
     @ExceptionHandler(CouponDeletedException.class)
     public ProblemDetail couponDeletedException(CouponDeletedException exception) {
         final ProblemDetail pb = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);

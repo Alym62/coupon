@@ -31,6 +31,7 @@ public class CouponMapper {
         );
         coupon.setId(persistence.getId());
         coupon.setStatus(persistence.getStatus());
+        coupon.setRemoved(persistence.getRemoved());
 
         return coupon;
     }

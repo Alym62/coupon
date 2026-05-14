@@ -27,6 +27,7 @@ class CouponTest {
     @Test
     void testConstructorWithParametersValid() {
         final Coupon coupon = new Coupon("@ABC-123", "Descrição", 0.8, false, false, EXPIRATION_DATE);
+        coupon.setId(UUID.randomUUID());
         assertNotNull(coupon.getCode());
         assertNotNull(coupon.getDescription());
         assertNotNull(coupon.getDiscountValue());

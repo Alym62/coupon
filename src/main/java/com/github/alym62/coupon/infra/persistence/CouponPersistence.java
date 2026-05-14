@@ -17,7 +17,7 @@ public class CouponPersistence {
     @Column(name = "code_coupon", nullable = false, length = 6)
     private String code;
 
-    @Column(name = "description", nullable = false, length = 120)
+    @Column(name = "description", nullable = false)
     private String description;
 
     @Column(name = "discount_value", nullable = false)
